@@ -1,5 +1,24 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
-
 # Export all names
 exportPattern(".")
+
+
+S3method(plot, phylog.cancor)
+S3method(plot, phylog.lm)
+S3method(plot, phylog.prcomp)
+S3method(prcomp, phylog)
+S3method(print, summary.phylog.cancor)
+S3method(print, summary.phylog.lm)
+S3method(print, summary.phylog.prcomp)
+S3method(summary, phylog.cancor)
+S3method(summary, phylog.lm)
+S3method(summary, phylog.prcomp)
+
+
+importFrom("graphics", "abline", "hist", "legend", "lines", "par",
+           "plot")
+importFrom("stats", "cancor", "drop.scope", "lm", "lm.fit", "lm.wfit",
+           "model.matrix", "prcomp", "predict", "quantile",
+           "weighted.residuals")
+importFrom("utils", "read.table")
+
+

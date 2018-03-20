@@ -571,7 +571,7 @@ lm.phylog <- function(formula, data, max.num = 0, weights = NULL,
     ## terms.in.model <- names(lm(formula = formula, data = data,
     ##                            subset = sim.counter == 0)[[1]])
 
-    ## I am getting a "note": no visible binding for global variable ‘sim.counter’
+    ## I am getting a note: no visible binding for global variable sim.counter
     ## let's see if this solves it
     terms.in.model <- names(lm(formula = formula,
                                data = data[data$sim.counter == 0,])[[1]])
