@@ -1,6 +1,9 @@
 # Export all names
-exportPattern(".")
+## exportPattern(".")
 
+export("cancor.phylog", "lm.phylog", "read.pdi.data", "cor.origin",
+"matrix.D", "read.phylip.data", "phylog.gls.fit", "read.phylog.matrix",
+"read.sim.data", "read.inp.data", "prcomp.phylog")
 
 S3method(plot, phylog.cancor)
 S3method(plot, phylog.lm)

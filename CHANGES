@@ -1,3 +1,9 @@
+Version 1.0.10 2018-03-20
+- explict export in NAMESPACE
+
+Version 1.0.9 2018-03-20
+- S3method in NAMESPACE
+
 Version 1.0.8 2010/08/09
 - path.packages instead of .path.package (later is defunct).
 - change in lm.phylog to prevent (incorrect) note about no visible binding
