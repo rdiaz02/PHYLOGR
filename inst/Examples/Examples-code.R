@@ -43,8 +43,15 @@ library(PHYLOGR) # load our package
 ###########################
 
 
+## This reads in the simulated data file, and adds a column with the
+## herbivore vs. carnivore indicator
 
-ANCOVA.sim <- read.sim.data("49lbr.sim", "49lbr.inp", variable.names = 	c("body.mass","home.range"), other.variables = data.frame(clade=c(rep("Carnivore",19),rep("Herbivore",30)))) # this reads in the simulated data file, and adds a column with the herbivore vs. carnivore indicator
+ANCOVA.sim <- read.sim.data("49lbr.sim", "49lbr.inp",
+                            variable.names = 	c("body.mass","home.range"),
+                            other.variables =
+                                data.frame(clade=c(rep("Carnivore",19),
+                                                   rep("Herbivore",30))))
+
 
 ancova.fit <- lm.phylog(home.range ~ body.mass + clade, data = ANCOVA.sim) # fit the model
 
@@ -53,13 +60,15 @@ summary(ancova.fit)
 #############################
 ##############################
 
-garland.janis.ic <- cbind(read.table("49ms.fic")[,c(3,4)], read.table("49hmt.fic")[,c(3,4)]) # read fic files
+garland.janis.ic <- cbind(read.table("49ms.fic")[,c(3,4)],
+                          read.table("49hmt.fic")[,c(3,4)]) # read fic files
 
 branch.lengths <- read.table("49ms.fic")[,5] # the branch lengths
 
 garland.janis.ic <- garland.janis.ic/branch.lengths # standardize contrasts
 
-names(garland.janis.ic) <- c("body.mass", "running.speed", "hind.l.length", "mtf.ratio") # name the variables
+names(garland.janis.ic) <- c("body.mass", "running.speed",
+                             "hind.l.length", "mtf.ratio") # name the variables
 
 garland.janis.ic[garland.janis.ic$body.mass<0,] <- -1 * garland.janis.ic[ garland.janis.ic$body.mass<0, ] # to positivize contrasts
 
@@ -69,7 +78,7 @@ garland.janis.ic$names.contr <- as.factor(read.table("49ms.fic")[,1])
 
 garland.janis.ic$clade.contr <- as.factor( c("root",rep("Carnivore",18), rep("Herbivore",29))) # create indicator for clade
 
-
+## FIXME: avoid using attach. Use with, etc.
 attach(garland.janis.ic)
 
 # correlation of residuals from regressions on body mass
@@ -80,7 +89,9 @@ resid.speed <- resid(lm(running.speed ~ body.mass - 1))
 
 rho1 <- cor.origin(resid.hll,resid.speed)
 rho1 # the correlation through the origin
-2*(1-pt(sqrt(46)*rho1/sqrt(1-rho1^2),46)) # the p-value, using the standard formula but providing the correct df's.
+
+## the p-value, using the standard formula but providing the correct df's.
+2*(1-pt(sqrt(46)*abs(rho1)/sqrt(1-rho1^2), 46)) 
 
 
 # the same, but using multiple regression
@@ -100,7 +111,7 @@ resid.speed.nbear <- resid(lm(running.speed ~ body.mass - 1, subset=names.contr!
 
 rho2 <- cor.origin(resid.hll.nbear,resid.speed.nbear)
 rho2 # the correlation through the origin
-2*(1-pt(sqrt(45)*rho2/sqrt(1-rho2^2),45)) # the p-value, using the standard formula but providing the correct df's.
+2*(1-pt(sqrt(45)*abs(rho2)/sqrt(1-rho2^2),45)) # the p-value, using the standard formula but providing the correct df's.
 
 
 
