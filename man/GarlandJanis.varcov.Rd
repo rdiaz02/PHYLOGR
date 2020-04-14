@@ -23,15 +23,17 @@ simulation. \emph{Systematic Biology}, \bold{42}, 265--292.
 
 \examples{
 
-# an example of a GLS fit
-data(GarlandJanis.Original)
-data(GarlandJanis.varcov)
-attach(GarlandJanis.Original)
-fit.gls.GJ <- phylog.gls.fit(cbind(body.mass,hind.l.length),
-running.speed, GarlandJanis.varcov)
-summary(fit.gls.GJ) # summary of the gls model; same as with IC
-detach(GarlandJanis.Original)
+## What do the data look like
+head(GarlandJanis.Original)
+head(GarlandJanis.varcov)
 
+## An example of a GLS fit
+fit.gls.GJ <- with(GarlandJanis.Original, 
+                   phylog.gls.fit(cbind(body.mass,hind.l.length),
+                                  running.speed, GarlandJanis.varcov)
+     )
+
+summary(fit.gls.GJ) # summary of the gls model; same as with IC
 
 
 \dontrun{

@@ -11,12 +11,18 @@ mammals (18 carnivores and 29 ungulates).
 \format{
 This data frame contains the following columns:
 \describe{
-\item{Tips}{ the code for each species}
-\item{body.mass}{ log 10 of body mass in kilograms}
-\item{running.speed}{ log 10 running or sprint speed in km/h}
-\item{hind.l.length}{ log 10 hind limb length ---sum of femur, tibia,
+
+  \item{Tips}{ the code for each species}
+
+  \item{body.mass}{ log 10 of body mass in kilograms}
+
+  \item{running.speed}{ log 10 running or sprint speed in km/h}
+
+  \item{hind.l.length}{ log 10 hind limb length ---sum of femur, tibia,
   and metatarsal lengths---in cm}
+
 \item{mtf.ratio}{metatarsal/femur ratio}
+
 \item{clade}{ a factor with levels \code{Carnivore} or \code{Herbivore}} 
 }
 }
@@ -31,14 +37,18 @@ predict maximal running speed in cursorial mammals? \emph{J. Zoology,
 \seealso{ \code{\link{GarlandJanis.IC}}, \code{\link{GarlandJanis.varcov}}}
 
 \examples{
-# an example of a GLS fit
-data(GarlandJanis.Original)
-data(GarlandJanis.varcov)
-attach(GarlandJanis.Original)
-fit.gls.GJ <- phylog.gls.fit(cbind(body.mass,hind.l.length),
-running.speed, GarlandJanis.varcov)
+
+## What do the data look like
+head(GarlandJanis.Original)
+head(GarlandJanis.varcov)
+
+## An example of a GLS fit
+fit.gls.GJ <- with(GarlandJanis.Original, 
+                   phylog.gls.fit(cbind(body.mass,hind.l.length),
+                                  running.speed, GarlandJanis.varcov)
+     )
+
 summary(fit.gls.GJ) # summary of the gls model; same as with IC
-detach(GarlandJanis.Original)
 
 
 \dontrun{
