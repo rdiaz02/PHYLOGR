@@ -24,13 +24,15 @@ cor.origin(x, y)
   simulations and generalized least squares approaches.
 }
 \author{ R. Diaz-Uriarte and T. Garland, Jr.}
+
 \note{ This is a very simple function, provided for convenience.  You
   can obtain the p-value, if you wish, with the usual formula for the
-  t-statistic:
-  \code{2*(1 - pt(sqrt(df) * rho / sqrt(1 - rho^2), df))}
-  where rho is the correlation through the origin and df are the appropriate degrees of
-freedom ---generally N-1.
-}
+  t-statistic: \code{2*(1 - pt(sqrt(df) * abs(rho) / sqrt(1 - rho^2),
+  df))} where rho is the correlation through the origin and df are the
+  appropriate degrees of freedom ---generally N-1---; by using the
+  absolute value of the coefficient and finding 2 * the probability of
+  upper tail (1 - pt) this works for both positive and negative
+  correlation coefficients.  }
 
 
 \examples{
@@ -38,7 +40,7 @@ freedom ---generally N-1.
  y <- rnorm(100)
  rho <- cor.origin(x,y)
  rho # the correlation
- 2 * (1 - pt(sqrt(99) * rho / sqrt(1 - rho^2), 99))  # the p-value
+ 2 * (1 - pt(sqrt(99) * abs(rho) / sqrt(1 - rho^2), 99))  # the p-value
  
 }
 \keyword{ models }%-- one or more ...
