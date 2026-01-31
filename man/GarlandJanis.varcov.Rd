@@ -1,10 +1,10 @@
 \name{GarlandJanis.varcov}
 \alias{GarlandJanis.varcov}
-\title{ Phylogenetic variance-covariance matrix for Garland \& Janis (1993). }
+\title{ Phylogenetic variance-covariance matrix for Garland & Janis (1993). }
 \description{
-  Phylogenetic variance-covariance matrix for the species in Garland \&
+  Phylogenetic variance-covariance matrix for the species in Garland &
   Janis (1993). Note that the phylogeny is not exactly the same as in
-  Garland \& Janis (1993), but actually corresponds to the more recent
+  Garland & Janis (1993), but actually corresponds to the more recent
   phylogeny in Garland et al. (1993).
 }
 \format{ A matrix with the phylogenetic distance between species; every
@@ -28,7 +28,7 @@ head(GarlandJanis.Original)
 head(GarlandJanis.varcov)
 
 ## An example of a GLS fit
-fit.gls.GJ <- with(GarlandJanis.Original, 
+fit.gls.GJ <- with(GarlandJanis.Original,
                    phylog.gls.fit(cbind(body.mass,hind.l.length),
                                   running.speed, GarlandJanis.varcov)
      )
@@ -38,7 +38,7 @@ summary(fit.gls.GJ) # summary of the gls model; same as with IC
 
 \dontrun{
 # This data set can be obtained from the original dsc file as:
-  
+
     GarlandJanis.varcov <- read.phylog.matrix("49ms.dsc")
 
 

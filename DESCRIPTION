@@ -1,9 +1,15 @@
 Package: PHYLOGR
-Version: 1.0.11
-Date: 2020-04-14
+Version: 1.0.12
+Date: 2026-01-30
 Title: Functions for Phylogenetically Based Statistical Analyses
-Author: Ramon Diaz-Uriarte <rdiaz@cnio.es> and Theodore Garland, Jr
-        <theodore.garland@ucr.edu>
+Authors@R: c(person(given = "Ramon",
+                        family = "Diaz-Uriarte",
+                        role = c("aut", "cre"),
+                        email = "rdiaz02@gmail.com"),
+                 person(given = "Theodore",
+                        family = "Garland, Jr",
+                        role = "aut",
+                        email = "theodore.garland@ucr.edu"))
 Maintainer: Ramon Diaz-Uriarte <rdiaz02@gmail.com>
 Depends: R(>= 1.8.1)
 Description: Manipulation and analysis of phylogenetically simulated

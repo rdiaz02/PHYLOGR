@@ -1,9 +1,9 @@
 \name{GarlandJanis.IC}
 \alias{GarlandJanis.IC}
 \docType{data}
-\title{ Independet contrasts for Garland \& Janis data set }
+\title{ Independet contrasts for Garland & Janis data set }
 \description{
-  Independent contrast for Garland \& Janis (1993) data set; they are
+  Independent contrast for Garland & Janis (1993) data set; they are
   based on the data in the file GarlandJanis.Original using the
   phylogeny in Garland et al. (1993) --- see GarlandJanis.varcov}
 \format{ The data frame contains seven columns.
@@ -11,7 +11,7 @@
   ---see detailed explanation in
   \code{\link{GarlandJanis.Original}}. The rest of the columns are:
   \describe{
-  \item{branch.lengths}{Standard Deviation of Contrast = square root of sum of corrected branch lengths.} 
+  \item{branch.lengths}{Standard Deviation of Contrast = square root of sum of corrected branch lengths.}
   \item{names.contr}{the names of the contrasts, as the names of the two
     nodes that form the contrast}
   \item{clade.contr}{ A factor with levels \code{Carnivore},
@@ -62,7 +62,7 @@ garland.janis.ic$branch.lengths <- branch.lengths
 garland.janis.ic$names.contr <-
                        as.factor(read.table("49ms.fic")[,1])
 garland.janis.ic$clade.contr <-
-    as.factor( c("root",rep("Carnivore",18), rep("Herbivore",29))) 
+    as.factor( c("root",rep("Carnivore",18), rep("Herbivore",29)))
 }
 
 

@@ -1,12 +1,12 @@
 \name{GarlandJanis.Original}
 \alias{GarlandJanis.Original}
 \docType{data}
-\title{ Garland \& Janis's 1993 data on mammalian running speed and limb length }
+\title{ Garland & Janis's 1993 data on mammalian running speed and limb length }
 \description{
-This data set was used by Garland \& Janis in their analysis of
+This data set was used by Garland & Janis in their analysis of
 metatarsal/femur ration and running speed in cursorial mammals.  The
 data refer to several ecomorphological characteristics for a set of 49
-mammals (18 carnivores and 29 ungulates).  
+mammals (18 carnivores and 29 ungulates).
 }
 \format{
 This data frame contains the following columns:
@@ -23,11 +23,11 @@ This data frame contains the following columns:
 
 \item{mtf.ratio}{metatarsal/femur ratio}
 
-\item{clade}{ a factor with levels \code{Carnivore} or \code{Herbivore}} 
+\item{clade}{ a factor with levels \code{Carnivore} or \code{Herbivore}}
 }
 }
 
-  
+
 \source{
 Garland, T. Jr., and Janis, C. M. (1993). Does metatarsal/femur ratio
 predict maximal running speed in cursorial mammals? \emph{J. Zoology,
@@ -43,7 +43,7 @@ head(GarlandJanis.Original)
 head(GarlandJanis.varcov)
 
 ## An example of a GLS fit
-fit.gls.GJ <- with(GarlandJanis.Original, 
+fit.gls.GJ <- with(GarlandJanis.Original,
                    phylog.gls.fit(cbind(body.mass,hind.l.length),
                                   running.speed, GarlandJanis.varcov)
      )
@@ -56,7 +56,7 @@ summary(fit.gls.GJ) # summary of the gls model; same as with IC
 # (in directory Examples) as:
 GarlandJanis.Orig <- read.pdi.data(c("49ms.pdi","49hmt.pdi"),
                    variable.names = c("body.mass", "running.speed",
-                                      "hind.l.length","mtf.ratio")) 
+                                      "hind.l.length","mtf.ratio"))
 Garland.Janis.Orig$clade <- as.factor(c(rep("Carnivore",19),
 				      rep("Herbivore",30)))
   }
